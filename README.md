@@ -1,7 +1,5 @@
 # 外贸电视盒子H96MAX RK3318盒子安装Armbian镜像教程
 
-[TOC]
-
 ## H96Max RK3318 armbian刷机教程以及安装docker和HASS的教程
 
 ### 0.准备工作
@@ -39,13 +37,29 @@
     sudo apt upgrade
     ```
 
-11. 安装 `vim` ： `sudo apt install vim -y`;
+11. 安装 `vim` ：
 
-12. 安装 `git`：`sudo apt install git -y`；
+    ```shell
+     sudo apt install vim -y
+    ```
 
-13. 安装 `pip`：`sudo apt install python3-pip -y` ；
+12. 安装 `git`：
 
-14. 安装`armbian-config` ：在命令行输入 `sudo apt install armbian-config -y `；
+    ```shell
+    sudo apt install git -y
+    ```
+
+13. 安装 `pip`：
+
+    ```shell
+    sudo apt install python3-pip -y
+    ```
+
+14. 安装`armbian-config` ：在命令行输入 
+
+    ```shell
+    sudo apt install armbian-config -y
+    ```
 
 15. 命令行输入 `reboot ` 重启设备；
 
@@ -57,13 +71,29 @@
 
 ### 3、安装Docker
 
-1. 如果安装过 `Docker` ，先卸载： `sudo apt-get remove docker docker-engine docker.io containerd runc`；
+1. 如果安装过 `Docker` ，先卸载：
 
-2. 新刷的系统没有安装过 `Docker`，先安装依赖： `sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common`；
+    ```shell
+    sudo apt-get remove docker docker-engine docker.io containerd runc
+    ```
 
-3. 信任 `Docker` 的 `GPG 公钥`  ： `curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg`；
+2. 新刷的系统没有安装过 `Docker`，先安装依赖： 
 
-4. 添加软件仓库:`echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list`;
+    ```shell
+    sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+    ```
+
+3. 信任 `Docker` 的 `GPG 公钥`  ： 
+
+    ```shell
+    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    ```
+
+4. 添加软件仓库:
+
+    ```shell
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list
+    ```
 
 5. 安装 `Docker` ：
 
@@ -130,7 +160,11 @@
 
     可以把-v后面的路径改成你的本地存放该容器配置路径，运行成功会生成一串容器id；
 
-4. 查看运行状态：`docker ps`
+4. 查看运行状态：
+
+    ```shell
+    docker ps
+    ```
 
     有创建容器时指定的name的记录表示已经运行成功，直接打开 127.0.0.1:8123 可以进入配置你的 HomeAssistant ；
 
