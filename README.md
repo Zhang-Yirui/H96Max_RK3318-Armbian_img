@@ -12,7 +12,7 @@
 
 使用作者提供的镜像和刷机工具或[进入](https://users.armbian.com/jock/rk3318/)Armbian镜像网站下载下载最新的镜像和刷机工具。
 
-### 2.安装armbian
+### 2.安装armbian[^1]
 
 1. 使用`balenaEtcher`将`multitool.img`烧录到TF卡上。烧录完成后，把镜像文件复制进`MULTITOOL`分区的`images`文件夹里；
 
@@ -74,22 +74,25 @@
 
 6. 换上阿里云的镜像加速：
 
-7. ```shell
+    ```shell
+    sudo mkdir -p /etc/docker
     sudo tee /etc/docker/daemon.json <<-'EOF'
     {
-      "registry-mirrors": ["https://z096vwit.mirror.aliyuncs.com"]
+      "registry-mirrors": ["https://0q59jibj.mirror.aliyuncs.com"]
     }
     EOF
     ```
 
-8. 重启 `Docker` :
+    **P.S. **阿里镜像加速请换成自己的[^2]
 
-9. ```shell
+7. 重新加载`daemon.json`文件内容并重启`Docker` ：
+
+    ```shell
     sudo systemctl daemon-reload
     sudo systemctl restart docker
     ```
 
-10. 进入 `resolv.conf` 修改 `DNS`： `vim /etc/resolv.conf`：
+8. 进入 `resolv.conf` 修改 `DNS`： `vim /etc/resolv.conf`：
 
     按 `a` 或 `i` 进入编辑模式，在后面追加
 
@@ -100,7 +103,7 @@
 
     按  `esc` 键进入命令模式，输入`:wq` 或 按`shift+z z` 保存并退出。
 
-### 4.安装HomeAssistant
+### 4.安装HomeAssistant[^3]
 
 1. 搜索镜像：
 
@@ -146,7 +149,9 @@
 
 ## 参考:
 
-https://www.znds.com/tv-1203362-1-1.html
+[^1]:https://www.znds.com/tv-1203362-1-1.html
+[^2]:https://blog.csdn.net/qq_33973359/article/details/108320573
+[^3]:https://blog.csdn.net/m0_67391683/article/details/124103709
 
-https://blog.csdn.net/m0_67391683/article/details/124103709
+
 
