@@ -49,12 +49,6 @@
     sudo apt install git -y
     ```
 
-13. 安装 `pip`：
-
-    ```shell
-    sudo apt install python3-pip -y
-    ```
-
 14. 安装`armbian-config` ：在命令行输入 
 
     ```shell
@@ -108,12 +102,10 @@
     sudo mkdir -p /etc/docker
     sudo tee /etc/docker/daemon.json <<-'EOF'
     {
-      "registry-mirrors": ["https://0q59jibj.mirror.aliyuncs.com"]
+      "registry-mirrors": ["https://z096vwit.mirror.aliyuncs.com"]
     }
     EOF
     ```
-
-    **P.S. **阿里镜像加速请换成自己的[^2]
 
 7. 重新加载`daemon.json`文件内容并重启`Docker` ：
 
@@ -133,7 +125,7 @@
 
     按  `esc` 键进入命令模式，输入`:wq` 或 按`shift+z z` 保存并退出。
 
-### 4.安装HomeAssistant[^3]
+### 4.安装HomeAssistant[^2]
 
 1. 搜索镜像：
 
@@ -184,8 +176,8 @@
 ## 参考:
 
 [^1]:https://www.znds.com/tv-1203362-1-1.html
-[^2]:https://blog.csdn.net/qq_33973359/article/details/108320573
-[^3]:https://blog.csdn.net/m0_67391683/article/details/124103709
+
+[^2]:https://blog.csdn.net/m0_67391683/article/details/124103709
 
 
 
