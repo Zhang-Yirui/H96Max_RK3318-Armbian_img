@@ -40,19 +40,27 @@
 11. 安装 `vim` ：
 
     ```shell
-     sudo apt install vim -y
+     sudo apt install -y vim
     ```
 
 12. 安装 `git`：
 
     ```shell
-    sudo apt install git -y
+    sudo apt install -y git
     ```
+
+13. 安装 `pip3`：
+
+    ```shell
+    sudo apt install -y python3-pip
+    ```
+
+    
 
 14. 安装`armbian-config` ：在命令行输入 
 
     ```shell
-    sudo apt install armbian-config -y
+    sudo apt install -y armbian-config
     ```
 
 15. 命令行输入 `reboot ` 重启设备；
@@ -74,7 +82,7 @@
 2. 新刷的系统没有安装过 `Docker`，先安装依赖： 
 
     ```shell
-    sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+    sudo apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
     ```
 
 3. 信任 `Docker` 的 `GPG 公钥`  ： 
@@ -93,7 +101,7 @@
 
     ```shell
     sudo apt update
-    sudo apt install docker-ce -y
+    sudo apt install -y docker-ce
     ```
 
 6. 换上阿里云的镜像加速：
@@ -136,7 +144,7 @@
 2. 可以看到排在第一的 homeassistant/home-assistant 的星标最多，我们选择下载它：
 
     ```shell
-    docker pull homeassistant/home-assistants
+    docker pull homeassistant/home-assistant
     ```
 
 3. 创建容器：
@@ -160,16 +168,36 @@
 
     有创建容器时指定的name的记录表示已经运行成功，直接打开 127.0.0.1:8123 可以进入配置你的 HomeAssistant ；
 
-5. 启动/停止容器：
+5. 启动/停止/删除容器：
 
     ```shell
     ## 启动
     docker start hass
     ## 停止
     docker stop hass
+    ## 删除(删除之前要先stop容器)
+    docker rm -f hass
     ```
 
-6. **未完待续**
+6. 安装HACS
+
+    ```shell
+    docker exec -it hass bash
+    
+    mkdir custom_components && cd custom_components && mkdir hacs && pwd
+    
+    git clone https://gitee.com/zhangyirui-xyz/hacsaa.git
+    
+    mv hacsaa/hacs_1.20.0.zip ./hacs
+    
+    cd hacs && unzip hacs_1.20.0.zip
+    
+    rm -rf hacs_1.25.0.zip
+    
+    cd .. && rm -rf hacsaa
+    ```
+
+    
 
 
 
