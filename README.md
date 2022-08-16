@@ -192,7 +192,7 @@
     
     cd hacs && unzip hacs_1.20.0.zip
     
-    rm -rf hacs_1.25.0.zip
+    rm -rf hacs_1.20.0.zip
     
     cd .. && rm -rf hacsaa
     ```
