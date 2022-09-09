@@ -177,6 +177,8 @@
     docker stop hass
     ## 删除(删除之前要先stop容器)
     docker rm -f hass
+    
+    docker update --restart=always
     ```
 
 6. 安装HACS
