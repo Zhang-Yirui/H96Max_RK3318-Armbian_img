@@ -352,7 +352,7 @@ sudo dpkg -i homeassistant-supervised.deb
 
 进入`ip:4357`，可以查看`Supervised`的状态：
 
-![supervised_state](.\pics/supervised_state.jpg)
+![supervised_state](pics/supervised_state.jpg)
 
 但此时`ip:8123`无法进入Home Assisistant Supervised的管理页面，需要重启一次设备：
 
