@@ -492,6 +492,14 @@ remote_port = 8120
 
 #### 可以设置成开机自启动服务项
 
+```shell
+cd /etc/systemd/system
+# 服务端
+sudo nano frps.service
+# 客户端看
+sudo nano frpc.service
+```
+
 ##### 服务端
 
 ```shell
@@ -505,7 +513,7 @@ User=root
 Type=simple
 Restart=on-failure
 RestartSec=5s
-ExecStart=/你的frp路径/frps -c /你的frp路径/frps.ini
+ExecStart=/home/workspace/frp/frpc -c /home/workspace/frp/frpc.ini
 
 [Install]
 WantedBy=multi-user.target
@@ -529,6 +537,17 @@ ExecStart=/你的frp路径/frpc -c /你的frp路径/frpc.ini
 
 [Install]
 WantedBy=multi-user.target
+```
+
+**保存并退出**后执行下面命令:
+
+```shell
+systemctl daemon-reload    # 重载系统服务
+# 此处*为frps或frpc
+systemctl enable *.service # 设置服务开机启动
+systemctl start *.service  # 启动某服务
+# systemctl stop *.service   # 停止某服务 
+# systemctl reload *.service # 重启某服务
 ```
 
 
