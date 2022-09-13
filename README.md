@@ -342,17 +342,17 @@ sudo dpkg -i homeassistant-supervised.deb
 
 之后，没有问题就会出现选项卡，我们选择`qemuarm-64`：
 
-![choose_the_type](pics\choose_the_type.jpg)
+![choose_the_type](pics/choose_the_type.jpg)
 
 **p.s.安装过程可能要很久，如果还是不行，记得科学一下再重新安装。**
 
 使用`docker ps`命令，查看Supervised的容器状态（如果并没有Homeassistant容器，等一段时间再试试，期间保持设备运行，Homeassistant会组建初始化完成）：
 
-![success_install](pics\success_install.jpg)
+![success_install](pics/success_install.jpg)
 
 进入`ip:4357`，可以查看`Supervised`的状态：
 
-![supervised_state](.\pics\supervised_state.jpg)
+![supervised_state](.\pics/supervised_state.jpg)
 
 但此时`ip:8123`无法进入Home Assisistant Supervised的管理页面，需要重启一次设备：
 
@@ -383,29 +383,29 @@ cd .. && rm -rf hacsaa
 
 然后在管理页面，点击配置 -> 系统->重新启动，等待重启完成；
 
-![reboot_hass](pics\reboot_hass.jpg)
+![reboot_hass](pics/reboot_hass.jpg)
 
 重启完成后，在配置-设备与服务-集成中点击添加集成；
 
-![add_integration](pics\add_integration.jpg)
+![add_integration](pics/add_integration.jpg)
 
 在搜索框中搜索HACS，安装。（选择框全选上）
 
-![](pics\hacs-1.jpg)
+![](pics/hacs-1.jpg)
 
-![hacs-2](pics\hacs-2.jpg)
+![hacs-2](pics/hacs-2.jpg)
 
 此时你要有一个github账号并登录
 
-![hacs-3](pics\hacs-3.jpg)
+![hacs-3](pics/hacs-3.jpg)
 
-![hacs-4](pics\hacs-4.jpg)
+![hacs-4](pics/hacs-4.jpg)
 
-![hacs-5](pics\hacs-5.jpg)
+![hacs-5](pics/hacs-5.jpg)
 
-![hacs-6](pics\hacs-6.jpg)
+![hacs-6](pics/hacs-6.jpg)
 
-![hacs-7](pics\hacs-7.jpg)
+![hacs-7](pics/hacs-7.jpg)
 
 到此，你的HACS便安装完毕！
 
