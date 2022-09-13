@@ -8,7 +8,9 @@
 
 ### 1.下载Armbian镜像和刷机工具
 
-使用作者提供的镜像和刷机工具或[进入](https://users.armbian.com/jock/rk3318/)Armbian镜像网站下载下载最新的镜像和刷机工具。
+使用作者提供的[镜像和刷机工具](./tools&images/readme.md)或[进入](https://users.armbian.com/jock/rk3318/)Armbian镜像网站下载下载最新的镜像和刷机工具。
+
+本人使用的镜像是：***Armbian_22.05.0-trunk_Rk3318-box_bullseye_current_5.15.34_minimal.img***
 
 ### 2.安装armbian[^1]
 
@@ -37,7 +39,7 @@
     sudo nano /etc/apt/sources.list
     ```
 
-    **将以下内容粘贴至 `sources.list`**：
+    将以下内容粘贴至 `sources.list`：
 
     ```shell
     deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free
@@ -200,7 +202,7 @@ if [ ! -s /etc/NetworkManager/conf.d/100-disable-wifi-mac-randomization.conf ];t
 fi
 ```
 
-p.s. 如果有ModemManage，请禁用ModemManage：
+p.s. 如果有 `ModemManage`，请禁用 `ModemManage`：
 
 ```shell
 # 停止ModemManager
@@ -223,9 +225,9 @@ apparmor=1 security=apparmor
 
 ### 6.安装OS-Agent
 
-OS Agent并没有在Debian的软件源内，所以我们需要使用dpkg安装。最新OS Agent的[下载地址](https://github.com/home-assistant/os-agent/releases/latest)在这。
+`OS-Agent`并没有在Debian的软件源内，所以我们需要使用dpkg安装。最新`OS-Agent`的[下载地址](https://github.com/home-assistant/os-agent/releases/latest)在这。
 
-这里下载并安装`1.3.0`版本的OS Agent：
+这里下载并安装`1.3.0`版本的`OS-Agent`：
 
 ```shell
 # 下载OS Agent 1.3.0
@@ -250,7 +252,14 @@ dbus -y
 
 ### 8.安装Home Assistant Supervised & HACS
 
-**在安装HASS前要先重启（`reboot`）设备 **
+==**在安装HASS前要先重启设备 ：**==
+
+```shell
+# 重启
+reboot
+```
+
+
 
 #### 1)安装HASS(不支持Supervised) & HACS[^2]
 
@@ -318,7 +327,11 @@ dbus -y
     cd .. && rm -rf hacsaa
     ```
 
+7. 后续步骤在下面的[安装HACS](#hacs)中
+
 #### 2)安装 Home Assistant Supervised & HACS[^3]
+
+##### 1、安装Home Assistant Supervised
 
 ```shell
 # 下载deb安装包
@@ -350,7 +363,7 @@ sudo reboot
 
 重启后，等待5分钟左右（第一次启动比较慢），就可以通过`ip:8123`在浏览器访问了。
 
-安装HACS:
+##### 2、安装HACS<a id='hacs'> </a>
 
 ```shell
 cd /usr/share/hassio/homeassistant
