@@ -423,7 +423,7 @@ cd .. && rm -rf hacsaa
 
 Frp是的原理，就是实现远程端对端的映射；所以，就需要服务端和客户端，**服务端，顾名思义，就是上面提到的云服务器；客户端，就是我们自己电脑/设备**。
 
-获取frp：使用的是[fatedier](https://github.com/fatedier/frp/commits?author=fatedier)大佬的[项目](https://github.com/fatedier/frp)。
+获取frp：使用的是[fatedier](https://github.com/fatedier/)大佬的[项目](https://github.com/fatedier/frp)。
 
 #####  服务端
 
@@ -451,7 +451,7 @@ dashboard_port = 7002 # 网页查看frp状态的端口，用不到可以去掉
 vhost_http_port = 8124 # http端口，用不到可以去掉
 vhost_https_port = 8125 # https端口，用不到可以去掉
 max_pool_count = 10
-max_pool_count = /var/logs/frps.log
+log_file = /var/logs/frps.log
 log_level = info
 dashboard_user = admin
 dashboard_pwd = xxxx # 你的密码
@@ -513,7 +513,7 @@ User=root
 Type=simple
 Restart=on-failure
 RestartSec=5s
-ExecStart=/home/workspace/frp/frpc -c /home/workspace/frp/frpc.ini
+ExecStart=/你的frp路径/frps -c /你的frp路径/frps.ini
 
 [Install]
 WantedBy=multi-user.target
@@ -547,7 +547,7 @@ systemctl daemon-reload    # 重载系统服务
 systemctl enable *.service # 设置服务开机启动
 systemctl start *.service  # 启动某服务
 # systemctl stop *.service   # 停止某服务 
-# systemctl reload *.service # 重启某服务
+# systemctl restart *.service # 重启某服务
 ```
 
 
