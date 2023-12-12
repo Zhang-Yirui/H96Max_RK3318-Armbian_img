@@ -123,7 +123,7 @@
 4. 添加软件仓库:
 
     ```shell
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     ```
 
 5. 下载 `Docker` 官方脚本，并使用阿里源进行 `Docker` r的安装：
@@ -192,13 +192,13 @@ sudo apt install -y network-manager
 
 ```shell
 if [ ! -s /etc/NetworkManager/conf.d/100-disable-wifi-mac-randomization.conf ];then
-	cat << EOF | sudo tee /etc/NetworkManager/conf.d/100-disable-wifi-mac-randomization.conf
-    [connection]
-    wifi.mac-address-randomization=1
+cat << EOF | sudo tee /etc/NetworkManager/conf.d/100-disable-wifi-mac-randomization.conf
+[connection]
+wifi.mac-address-randomization=1
 
-    [device]
-    wifi.scan-rand-mac-address=no
-    EOF
+[device]
+wifi.scan-rand-mac-address=no
+EOF
 fi
 ```
 
