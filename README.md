@@ -229,7 +229,23 @@ apparmor=1 security=apparmor
 
 这里下载并安装`1.3.0`版本的`OS-Agent`：
 
+
 ```shell
+# 安装依赖
+apt install \
+apparmor \
+cifs-utils \
+curl \
+dbus \
+jq \
+libglib2.0-bin \
+lsb-release \
+network-manager \
+nfs-common \
+systemd-journal-remote \
+systemd-resolved \
+udisks2 \
+wget -y
 # 下载OS Agent 1.3.0
 wget https://github.com/home-assistant/os-agent/releases/download/1.3.0/os-agent_1.3.0_linux_aarch64.deb
 # 使用dpkg安装
