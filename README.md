@@ -1,3 +1,5 @@
+
+
 # 外贸电视盒子H96MAX RK3318盒子安装Armbian镜像教程
 
 ## H96Max RK3318 armbian刷机教程、安装 Home Assistant Supervised & HACS 以及外网访问的教程
@@ -501,7 +503,7 @@ remote_port = 6006
 
 [HASS] # 取一个你自己看的懂的名字
 type = tcp
-loacl_ip = 192.168.x.x # 你的设备的内网ip
+local_ip = 192.168.x.x # 你的设备的内网ip
 local_port = 8123
 remote_port = 8120
 ```
